@@ -21,7 +21,7 @@ import {
   
     @Column()
     password!: string;
-  
+    
     private _previousPassword?: string;
   
     constructor(name: string, email: string, password: string) {

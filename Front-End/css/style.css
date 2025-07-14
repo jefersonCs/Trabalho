@@ -1,67 +1,99 @@
-html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  body {
-    background-color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  main {
-    background-color: rgb(95, 91, 91);
-    padding: 30px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  h1 {
-    color: #fff;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    color: #fff;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    margin-bottom: 15px;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 50%;
-    margin-left: 26%;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  a{
-    position: absolute;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    margin-top:14%;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right, #1f1c2c, #383838);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease;
+}
+
+.container {
+  background-color: #ffffff10;
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: slideUp 0.8s ease;
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #ddd;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff20;
+  color: #fff;
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+input:focus {
+  outline: none;
+  background-color: #ffffff30;
+  box-shadow: 0 0 8px #00ffc8;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #4c4c4c, #2f302f);
+  border: none;
+  border-radius: 10px;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.login-link {
+  color: #eee;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.login-link a {
+  color: #0a0a0a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

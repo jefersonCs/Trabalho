@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
     username: 'root', 
     password: 'root',
     database: 'aula_typeorm',
-    synchronize: true, 
+    synchronize: false, 
     logging: true,
     entities: ["src/models/*.ts"],
 });

@@ -1,91 +1,43 @@
 import { Request, Response } from 'express';
-import { AppDataSource } from '../DataBase/Data-Source';
-import { User } from '../Models/User';
+import { AppDataSource } from '../database/Data-Source';
+import { User } from '../models/User';
+import bcrypt from  "bcryptjs"
 
 const userRepository = AppDataSource.getRepository(User);
 
-export class UserController {
-    // Listar todos os usuários
-    async list(req: Request, res: Response) {
-        const users = await userRepository.find();
-        res.json(users);
-        return 
-    }
 
-    // Criar novo usuário
+export class UserController {
     async create(req: Request, res: Response) {
         const { name, email, password } = req.body;
 
-        const user = userRepository.create({ name, email, password });
-        await userRepository.save(user);
-        res.status(201).json(user);
-        return
-    }
-
-    // Buscar usuário por ID
-    async show(req: Request, res: Response) {
-        const { id } = req.params;
-
-        const user = await userRepository.findOneBy({ id: Number(id) });
-
-        if (!user) {
-        res.status(404).json({ message: 'Usuário não encontrado' });
-        return
+        if(!name || !email || !password) {
+            res.status(400).json({ message: "Todos so campos são necessários!"})
+            return;
         }
 
-        res.json(user);
-        return
-    }
+        try {
+            const existUser = await userRepository.findOneBy({ email })
 
-    async shew(req: Request, res: Response) {
-        const { name } = req.params;
+            if(existUser) {
+                res.status(409).json({ message: "Este e-mail já está em uso!" })
+                return
+            }
 
-        const user = await userRepository.findOneBy({ name });
+            const user = new User(name, email, password)
+            const newUser = await userRepository.create(user)
+            await userRepository.save(newUser)
 
-        if (!user) {
-        res.status(404).json({ message: 'Usuário não encontrado' });
-        return
+            res.status(200).json({ message: "Usuário criado com sucesso!", usuario: newUser  })
+            return;
+        } catch(erro) {
+            if (erro instanceof Error) {
+                res.status(500).json({ message: "Erro inesperado,tente novamente mais tarde." })
+                console.error(erro);
+                return;
+            }
         }
 
-        res.json(user);
-        return
-    }
-    // Atualizar usuário
-    async update(req: Request, res: Response) {
-        const { id } = req.params;
-        const { name, email, password } = req.body;
 
-        const user = await userRepository.findOneBy({ id: Number(id) });
 
-        if (!user) {
-        res.status(404).json({ message: 'Usuário não encontrado' });
-        return
-        }
-
-        user.name = name;
-        user.email = email;
-        user.password = password;
-
-        await userRepository.save(user);
-
-        res.json(user);
-        return
-    }
-
-    // Deletar usuário
-    async delete(req: Request, res: Response) {
-        const { id } = req.params;
-
-        const user = await userRepository.findOneBy({ id: Number(id) });
-
-        if (!user) {
-        res.status(404).json({ message: 'Usuário não encontrado' });
-        return
-        }
-
-        await userRepository.remove(user);
-
-        res.status(204).send();
-        return
     }
 }
