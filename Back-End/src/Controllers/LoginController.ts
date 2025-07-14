@@ -1,6 +1,6 @@
 // src/controllers/AuthController.ts
 import { Request, Response } from "express";
-import { AppDataSource } from "../database/Data-Source";
+import  AppDataSource  from "../database/Data-Source";
 import { User } from "../models/User";
 import bcrypt from "bcryptjs";
 

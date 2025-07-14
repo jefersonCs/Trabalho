@@ -1,6 +1,6 @@
 import express,{Application} from "express"
 import UserRoutes from "./routes/UserRoutes"
-import { AppDataSource } from "./database/Data-Source";
+import  AppDataSource from "./database/Data-Source";
 import cors from "cors";
 
 const app: Application = express();

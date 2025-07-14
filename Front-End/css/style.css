@@ -7,29 +7,28 @@
 
 body {
   height: 100vh;
-  background: linear-gradient(to right, #1f1c2c, #383838);
+  background: #f2f4f8;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 1s ease;
 }
 
 .container {
-  background-color: #ffffff10;
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px 30px;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
-  animation: slideUp 0.8s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 h1 {
-  color: #fff;
   margin-bottom: 25px;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 600;
 }
 
 .input-group {
@@ -38,60 +37,62 @@ h1 {
 }
 
 label {
-  color: #ddd;
-  font-weight: 600;
-  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 6px;
   display: block;
+  font-size: 0.95rem;
 }
 
 input {
   width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background-color: #ffffff20;
-  color: #fff;
-  transition: 0.3s;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+  color: #333;
+  font-size: 1rem;
+  transition: 0.2s;
 }
 
 input::placeholder {
-  color: #ccc;
+  color: #aaa;
 }
 
 input:focus {
   outline: none;
-  background-color: #ffffff30;
-  box-shadow: 0 0 8px #00ffc8;
+  border-color: #4a90e2;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
 }
 
 button {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(to right, #4c4c4c, #2f302f);
+  background-color: #4a90e2;
   border: none;
-  border-radius: 10px;
-  color: #333;
-  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.25s ease;
 }
 
 button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  background-color: #3a78c2;
 }
 
 .login-link {
-  color: #eee;
+  color: #666;
   margin-top: 20px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .login-link a {
-  color: #0a0a0a;
+  color: #4a90e2;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .login-link a:hover {

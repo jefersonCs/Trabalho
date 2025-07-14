@@ -2,10 +2,12 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "npx ts-node-dev src/server.ts"
-  },
+  "main": "dist/server.js",
+    "scripts": {
+    "dev": "ts-node-dev src/server.ts",
+    "build": "npx tsc",
+    "start": "cross-env NODE_ENV=production node dist/server.js"
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
